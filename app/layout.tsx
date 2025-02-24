@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div>Hello from rout layout</div>
+        {children}
       </body>
     </html>
   );
