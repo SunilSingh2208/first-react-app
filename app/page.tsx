@@ -1,5 +1,8 @@
 "use client";
 import { useState } from 'react';
+import { ArrayComponent } from './ArrayComponent';
+import {Header} from './Header';
+import { ObjectComponent } from './ObjectComponent';
 
 export default function Home() {
   //hooks are function is react to manage a state(s)
@@ -8,10 +11,6 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [hasLight, setHasLight] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-
-  //tomorrow
-  const [hobbies, setHobbies] = useState([]);
   const [profile, setProfile] = useState({
     age: null,
     height: null,
@@ -22,6 +21,7 @@ export default function Home() {
     hobbies: [],
     hasLight: true
   })
+
 
 
   // value = any variable(state) name that holds the value
@@ -52,38 +52,21 @@ export default function Home() {
 
   }
 
-  const addHobby = () => {
-    setHobbies((previous) => {
-      if (inputValue !== "") {
-        //spread operator
-        return [...previous, inputValue]
-      } else {
-        return previous;
-      }
-
-    });
-
-
-    // setHobbies([...hobbies, inputValue]);
-    setInputValue("");
-  }
-
-
   // console.log("Hobbies --", hobbies);
 
-  let myarray = [2, 5, 6];
+  const myarray = [2, 5, 6];
 
   //map returns a new array with modified value also
   //but it can't change the length of the new array
-  let b = myarray.map(item=>{
-    return item*2;
+  const b = myarray.map(item => {
+    return item * 2;
   })
 
   //filter method is used to filter out the values from the array
   //it return a new array that passes a certain condition
   //it can changes the length of the array(new array) 
-  let c = myarray.filter(item=>{
-    return item%2==0; // either true  or false
+  const c = myarray.filter(item => {
+    return item % 2 == 0; // either true  or false
   })
 
   console.log("b --", b);
@@ -97,18 +80,17 @@ export default function Home() {
   //filter the myhobby array
   //return only hobbies that are not cricket
 
-  const newHobby = myhobby.filter(item=>{
-    return item!= 'cricket';
+  const newHobby = myhobby.filter(item => {
+    return item != 'cricket';
   })
 
   console.log("original hobby: ", myhobby);
   console.log("new hobby: ", newHobby);
 
 
-
   return (
     <div>
-      <div>Hello From Home Page: Sunil Negi</div>
+      <Header name={"Sunil"} age={24} />
       {/* <h3>Value of variable: {value}</h3>
       <button onClick={updateState}>Click</button> */}
       <h3>Your name is : {name} </h3>
@@ -134,38 +116,8 @@ export default function Home() {
         style={{ background: "red" }}
       />
 
-      <br />
-      <br />
-      <br />
-      <br />
-      {/* Array type */}
-      <input
-        type='text'
-        value={inputValue}
-        name='hobby'
-        placeholder='Enter hobby'
-        onChange={(event) => {
-          setInputValue(event.target.value);
-        }}
-        style={{ background: "red" }}
-      />
-      <br />
-      <br />
-      <button onClick={addHobby}>Add Hobby</button>
-      <br />
-      <br />
-
-      <h3>Your hobbies are: </h3>
-      {
-        // hobbies.map((hobby, index)=>{
-        //   return (<p key={index}>{index+1}: {hobby}</p>)
-        // })
-
-        hobbies.map((hobby, index) => (<p key={index}>
-          {index + 1}: {hobby}
-        </p>)
-        )
-      }
+        {/* <ArrayComponent /> */}
+        <ObjectComponent />
 
     </div>
   );
