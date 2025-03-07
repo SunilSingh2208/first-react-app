@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 export const ArrayComponent = () => {
-    const [hobbies, setHobbies] = useState([]);
     const [inputValue, setInputValue] = useState("");
+    const [hobbies, setHobbies] = useState([]);
 
     const addHobby = () => {
         setHobbies((previous) => {

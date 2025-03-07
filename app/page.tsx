@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { ArrayComponent } from './ArrayComponent';
 import {Header} from './Header';
 import { ObjectComponent } from './ObjectComponent';
+import { UseEffectComponent } from './UseEffectComponent';
+import { UseMemoComponent } from './UseMemoComponent';
+import { UseRefComponent } from './useRefComponent';
 
 export default function Home() {
   //hooks are function is react to manage a state(s)
@@ -117,7 +120,11 @@ export default function Home() {
       />
 
         {/* <ArrayComponent /> */}
-        <ObjectComponent />
+        {/* <ObjectComponent /> */}
+
+        {/* <UseEffectComponent /> */}
+        {/* <UseMemoComponent /> */}
+        <UseRefComponent />
 
     </div>
   );
